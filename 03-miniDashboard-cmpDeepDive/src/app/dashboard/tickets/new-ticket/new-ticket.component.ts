@@ -19,18 +19,19 @@ export class NewTicketComponent {
   // @ViewChild('form') form?: ElementRef<HTMLFormElement>;
   private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
 
+  enteredTitle = '';
+  enteredText = '';
+
   add = output<{ title: string; text: string }>();
 
   ngAfterViewInit(): void {
     console.log('after view init');
   }
 
-  onSubmit(titleElement: string, textElement: string) {
-    this.add.emit({ title: titleElement, text: textElement });
-
-    console.dir(titleElement);
-    console.dir(textElement);
-    this.form()?.nativeElement.reset();
+  onSubmit() {
+    this.add.emit({ title: this.enteredTitle, text: this.enteredTitle });
+    // this.form()?.nativeElement.reset();
+    this.enteredTitle = '';
+    this.enteredText = '';
   }
 }
-  
