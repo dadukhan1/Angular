@@ -10,9 +10,7 @@ export class SafeLinkDirective {
   queryParam = input('myapp', { alias: 'appSafeLink' });
   private hostElement = inject<ElementRef<HTMLAnchorElement>>(ElementRef);
 
-  constructor() {
-    console.log('hello duniya ');
-  }
+  constructor() {}
 
   onChangePage(event: MouseEvent) {
     const shouldChnage = window.confirm('Do you want to redirect');

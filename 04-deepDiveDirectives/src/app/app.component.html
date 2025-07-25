@@ -4,7 +4,7 @@
   <hr />
 
   <app-auth />
-  @if (isAdmin()) {
-  <p>Admin can seee this text</p>
-  }
+  <p *appAuth="'admin'" class="protected-content admin">Admin can seee this text</p>
+  <p *appAuth="'user'" class="protected-content unautheticated">Normal user can seee this text</p>
+  <p *appAuth="'guest'" class="protected-content authenticated">Guest user can seee this text</p>
 </main>
