@@ -17,9 +17,9 @@ export class SafeLinkDirective {
   onChangePage(event: MouseEvent) {
     const shouldChnage = window.confirm('Do you want to redirect');
     if (shouldChnage) {
-    //   const address = (event.target as HTMLAnchorElement).href;
-    //   (event.target as HTMLAnchorElement).href = address + this.queryParam();
-      const address = this.hostElement.nativeElement.href; // Dependcy Injection Approch 
+      //   const address = (event.target as HTMLAnchorElement).href;
+      //   (event.target as HTMLAnchorElement).href = address + this.queryParam();
+      const address = this.hostElement.nativeElement.href; // Dependcy Injection Approch
       this.hostElement.nativeElement.href = address + this.queryParam();
       return;
     }
