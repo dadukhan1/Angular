@@ -4,4 +4,7 @@
   <hr />
 
   <app-auth />
+  @if (isAdmin()) {
+  <p>Admin can seee this text</p>
+  }
 </main>
