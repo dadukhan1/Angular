@@ -1,8 +1,24 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 
 import { AppComponent } from './app/app.component';
-import { provideHttpClient } from '@angular/common/http';
+import {
+  HttpHandlerFn,
+  HttpRequest,
+  provideHttpClient,
+  withInterceptors,
+} from '@angular/common/http';
+
+function logginInterceptor(request: HttpRequest<unknown>, next: HttpHandlerFn) {
+  console.log('Request Logging');
+
+  // const req = request.clone({
+  //   headers: request.headers.set('X-DEBUG', 'TESTING'),
+  // });
+
+  console.log(request);
+  return next(request);
+} 
 
 bootstrapApplication(AppComponent, {
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(withInterceptors([logginInterceptor]))],
 }).catch((err) => console.error(err));
